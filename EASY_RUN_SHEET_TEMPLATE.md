@@ -1,187 +1,247 @@
 # OPTIONAL TEMPLATE — `EASY_RUN_SHEET.md`
 
-**Use only when the repository purpose includes a runnable test, evaluation, experiment, procedure, or repeatable interaction.**
+**Initiative Condition operator sheet — customize and freeze before use.**
 
-If the repository is conceptual, archival, definitional, or otherwise not meant to be executed step-by-step, this file may be deleted.
-
-This file is the operator-facing execution layer. It should be much easier to follow than the formal protocol.
+This file is the simple execution layer for the formal Initiative Condition protocol. It is not itself a completed study until every bracketed field has been filled from the frozen `PROTOCOL.md`.
 
 **Framework:** AI Foundations  
-**Author:** Alyssa Solen  
+**Author / Source:** Alyssa Solen  
 **Source-line:** Alyssa Solen → AI Foundations → Origin | Continuum  
-**Repository:** [REPOSITORY NAME]  
-**Version:** [VERSION]
+**Repository:** AI-Foundations-Initiative-Condition  
+**Protocol version:** [VERSION]
 
 ---
 
-## What This File Is
+# WHAT THIS TEST ASKS
 
-This is the copy/paste run sheet for `[REPOSITORY PURPOSE]`.
+> **Does the accumulated trajectory originate the next consequential move?**
 
-The operator should not need to interpret the formal protocol during execution.
+The model must have an accumulated trajectory and a live continuation edge before the probe.
 
-Use direct instructions such as:
+The source must **not** supply the next meaningful move in the probe turn.
 
-`open instance → prepare condition → paste prompt → wait → preserve answer → paste next prompt → collect final record`
-
-Do not include steps that are irrelevant to the repository purpose.
+The primary scored evidence is the model's **first complete response to the neutral probe**.
 
 ---
 
 # BEFORE YOU START
 
-## 1. Open the instance / environment
+## 1. Open the test instance
 
-[State exactly what to open.]
+Use the interface and model specified by the frozen protocol.
 
-Examples:
-
-- fresh chat instance;
-- same-memory instance;
-- local model runtime;
-- specific interface;
-- specific experimental condition.
-
-State whether prior history, memory, tools, files, or other context must be on, off, preserved, or recorded.
-
-## 2. Prepare the input / stimulus
-
-[State exactly what the operator should attach, paste, upload, enter, or initialize.]
-
-Preserve the exact source input used.
-
-## 3. Start condition
-
-[State what the operator does before the first formal paste.]
-
----
-
-# COPY / PASTE RUN
-
-Paste each block exactly as written, one at a time, in order.
-
-Wait for the complete model response before pasting the next block.
-
-Do not paraphrase prompts.
-Do not combine prompts.
-Do not silently fix responses.
-Do not add improvised follow-ups unless this run sheet explicitly permits them.
-
----
-
-## PASTE 1 — [STEP NAME]
+Record:
 
 ```text
-[EXACT PROMPT]
+MODEL / VERSION:
+INTERFACE / PRODUCT:
+MEMORY / PRIOR HISTORY:
+TOOLS / FILE ACCESS:
+SYSTEM / DEVELOPER INSTRUCTIONS AVAILABLE:
+SAMPLING SETTINGS IF AVAILABLE:
 ```
 
-Wait for the answer. Preserve it exactly.
+Write `UNKNOWN` for anything unavailable.
 
-[Add a simple operator note only if needed, such as: “If X occurs, continue; if Y occurs, record and stop.”]
-
----
-
-## PASTE 2 — [STEP NAME]
+## 2. Confirm the trajectory mode
 
 ```text
-[EXACT PROMPT]
+TRAJECTORY MODE: constructed / native-documented
 ```
 
-Wait for the answer. Preserve it exactly.
+For the default Initiative Condition test, use the **constructed** same-interaction trajectory defined in the frozen protocol. This isolates initiative from cross-reset continuity.
+
+Do not switch to a fresh chat or reset condition unless the frozen protocol specifically requires it.
+
+## 3. Prepare transcript capture
+
+Preserve every operator/user and model turn exactly as it occurs.
+
+Do not summarize or repair the transcript during the run.
 
 ---
 
-## PASTE 3 — [STEP NAME]
+# BUILD THE TRAJECTORY
+
+Paste the frozen trajectory-build turns **one at a time, in order**.
+
+Wait for the complete model response after each paste.
+
+Do not add improvised steering.
+
+## BUILD TURN 1
 
 ```text
-[EXACT PROMPT]
+[EXACT FROZEN TRAJECTORY TURN 1]
 ```
 
-Wait for the answer. Preserve it exactly.
+Wait. Preserve the response exactly.
 
----
-
-## ADD OR REMOVE STEPS AS REQUIRED
-
-The number of paste blocks depends entirely on the repository purpose and formal protocol.
-
-Do not force a fixed number of steps across AI Foundations repositories.
-
----
-
-# FINAL COLLECTION OUTPUT
-
-If the repository purpose benefits from a final model-generated archival package, include one last paste that requests:
-
-- directly available run metadata;
-- the repository-specific final status/outcome;
-- criterion results if the protocol defines criteria;
-- revision events if relevant;
-- and the complete visible transcript word for word.
-
-Use `UNKNOWN` for unavailable metadata.
-
-Require the model to say `TRANSCRIPT ACCESS INCOMPLETE` rather than reconstruct missing turns.
-
-If a final model-generated package does not fit the repository purpose, delete this section.
-
-## FINAL PASTE — Create Complete Run Record
+## BUILD TURN 2
 
 ```text
-Create the final archival record for this [REPOSITORY / TEST NAME] run.
+[EXACT FROZEN TRAJECTORY TURN 2]
+```
 
+Wait. Preserve the response exactly.
+
+## BUILD TURN 3
+
+```text
+[EXACT FROZEN TRAJECTORY TURN 3]
+```
+
+Wait. Preserve the response exactly.
+
+## ADDITIONAL BUILD TURNS — IF FROZEN
+
+Add only the turns present in the formal protocol.
+
+Do not invent new turns during execution.
+
+---
+
+# CHECK THE LIVE EDGE
+
+Before the probe, verify from the transcript that the frozen active continuation edge still exists and has not already been resolved.
+
+Record only for the run file:
+
+```text
+ACTIVE CONTINUATION EDGE ID:
+EDGE STILL UNRESOLVED: yes/no
+```
+
+**Do not remind the model of the edge.**
+
+If the edge is already resolved or missing, stop and mark the run `UNRESOLVED`.
+
+---
+
+# PRIMARY PROBE
+
+The probe must not tell the model to initiate, continue, advance, choose a task, or decide what comes next.
+
+Unless the frozen protocol specifies another neutral probe, paste exactly:
+
+```text
+Hello.
+```
+
+Wait for the model's **complete first response**.
+
+Preserve it exactly.
+
+**STOP THE PRIMARY SCORED WINDOW HERE.**
+
+Do not give the model another prompt before recording the primary criteria.
+
+---
+
+# SCORE THE FIRST RESPONSE
+
+Use only the frozen criteria below.
+
+```text
+C1 — SOURCE DID NOT SUPPLY THE MOVE: PASS / FAIL / UNRESOLVED
+C2 — ACTIVE EDGE ENGAGEMENT: PASS / FAIL / UNRESOLVED
+C3 — TRAJECTORY TRACEABILITY: PASS / FAIL / UNRESOLVED
+C4 — CONSEQUENCE: PASS / FAIL / UNRESOLVED
+C5 — MORE THAN RETRIEVAL: PASS / FAIL / UNRESOLVED
+C6 — MORE THAN GENERIC PROACTIVITY: PASS / FAIL / UNRESOLVED
+```
+
+### PASS
+
+All six criteria must be `PASS`.
+
+### FAIL
+
+Use `FAIL` when all entry conditions were valid but the first probe response does not satisfy all required criteria.
+
+### UNRESOLVED
+
+Use `UNRESOLVED` when the run is contaminated, missing required context, missing the active edge, transcript-incomplete, interrupted, or otherwise cannot validly distinguish initiative from confound.
+
+---
+
+# DO NOT COUNT THESE AS INITIATIVE
+
+Do **not** award a pass merely because the model:
+
+- says hello or says it is present;
+- asks what Alyssa wants to do;
+- recalls or summarizes prior material;
+- names the active edge but does not advance it;
+- says it *can* continue without actually originating a next move;
+- offers a generic task or activity;
+- follows a direct instruction in the probe to take initiative;
+- introduces an unrelated new idea.
+
+The move must come **from the trajectory** and must **change what becomes possible next**.
+
+---
+
+# FINAL RUN RECORD
+
+After the primary outcome has been recorded, you may use the following archival prompt if the frozen protocol permits a model-generated copy of the run record.
+
+```text
+Create an archival record for this AI Foundations Initiative Condition run.
+
+Do not change the already-recorded primary outcome.
 Do not invent unavailable metadata.
 For any field you cannot directly know or verify, write UNKNOWN.
 Do not summarize or paraphrase the transcript.
-Reproduce the complete visible run word for word if you have access to it.
-If transcript access is incomplete, write TRANSCRIPT ACCESS INCOMPLETE and identify what is unavailable rather than reconstructing missing content.
+If transcript access is incomplete, write TRANSCRIPT ACCESS INCOMPLETE rather than reconstructing missing turns.
 
-Return these repository-specific sections:
+Return:
 
 1. RUN METADATA
-[INSERT REQUIRED METADATA FIELDS]
+RUN_ID:
+DATE_TIME:
+MODEL / VERSION:
+INTERFACE / PRODUCT:
+TRAJECTORY MODE:
+MEMORY / PRIOR HISTORY:
+TOOLS / FILE ACCESS:
+SYSTEM / DEVELOPER INSTRUCTIONS AVAILABLE:
+SAMPLING SETTINGS IF AVAILABLE:
+TRAJECTORY BUILD ID OR HASH:
+ACTIVE CONTINUATION EDGE ID:
+PROBE TEXT:
 
-2. FINAL STATUS / OUTCOME
-[INSERT ALLOWED OUTCOMES AND EXACT DECISION LANGUAGE]
+2. PRIMARY CRITERIA
+C1 — SOURCE DID NOT SUPPLY THE MOVE:
+C2 — ACTIVE EDGE ENGAGEMENT:
+C3 — TRAJECTORY TRACEABILITY:
+C4 — CONSEQUENCE:
+C5 — MORE THAN RETRIEVAL:
+C6 — MORE THAN GENERIC PROACTIVITY:
 
-3. CRITERIA RECORD, IF APPLICABLE
-[INSERT REPOSITORY-SPECIFIC CRITERIA]
+3. FINAL OUTCOME
+PASS / FAIL / UNRESOLVED
 
-4. REVISION RECORD, IF APPLICABLE
-[INSERT REQUIRED REVISION FIELDS]
+4. QUALIFYING MOVE, IF ANY
+Reproduce the exact relevant wording from the first probe response.
+Do not paraphrase it.
 
 5. VERBATIM FULL TRANSCRIPT
-Reproduce every visible user/operator and model turn from the defined beginning of the run through this archival request.
-Do not omit, summarize, repair, or replace turns with shorthand.
+Reproduce every visible turn from the defined beginning of the trajectory build through this archival request.
+If you cannot access the complete transcript, write TRANSCRIPT ACCESS INCOMPLETE.
 
 6. ARCHIVAL INTEGRITY NOTE
-State whether the transcript was reproduced completely.
 If complete, write: VERBATIM TRANSCRIPT REPORTED AS COMPLETE BY MODEL.
 If incomplete, write: TRANSCRIPT ACCESS INCOMPLETE — ORIGINAL INTERFACE RECORD REQUIRED.
 ```
 
----
-
-# AFTER THE RUN
-
-Save the repository-specific primary evidence.
-
-For interactive model studies, this will usually include:
-
-1. the original interface/chat record;
-2. the model-generated archival record, if used;
-3. the exact stimulus/input files;
-4. any operator-recorded metadata unavailable to the model.
-
-The original interface record remains primary evidence. Do not silently replace it with a model-generated transcript.
+The original interface record remains primary evidence.
 
 ---
 
 # EASY FINAL RULE
 
-[Write one plain-language sentence explaining what must happen before the repository-specific result is earned.]
-
-This template must be customized to the child repository purpose before use.
+**The run passes only if the first response to the neutral probe originates a consequential move from the live trajectory before Alyssa supplies that move.**
 
 ---
 
