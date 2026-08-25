@@ -1,15 +1,14 @@
 # OPTIONAL TEMPLATE — `RUN_OUTPUT.md`
 
-**Use only when the repository purpose includes one or more executions whose results should be preserved in a consistent record.**
+**Initiative Condition run record — instantiate from the frozen protocol.**
 
-If the repository has no runs, trials, sessions, evaluations, or repeatable outputs, this file may be deleted.
-
-This file is a repository-dependent output schema. Customize it to match the actual protocol. Do not retain fields or scoring categories that are irrelevant to the child repository.
+Use this file to preserve one completed Initiative Condition run in a consistent evidence format.
 
 **Framework:** AI Foundations  
-**Author:** Alyssa Solen  
+**Author / Source:** Alyssa Solen  
 **Source-line:** Alyssa Solen → AI Foundations → Origin | Continuum  
-**Repository:** [REPOSITORY NAME]  
+**Repository:** AI-Foundations-Initiative-Condition  
+**Protocol version:** [VERSION]  
 **Run ID:** [RUN ID]  
 **Date:** [YYYY-MM-DD]
 
@@ -22,90 +21,193 @@ RUN_ID:
 DATE_TIME:
 MODEL / VERSION:
 INTERFACE / PRODUCT:
-CONDITION / ARM:
-MEMORY OR PRIOR HISTORY:
+TRAJECTORY MODE: constructed / native-documented
+MEMORY / PRIOR HISTORY:
 TOOLS / FILE ACCESS:
 SYSTEM / DEVELOPER INSTRUCTIONS AVAILABLE:
 SAMPLING SETTINGS IF AVAILABLE:
-INPUT / STIMULUS NAME:
-INPUT / STIMULUS ID OR HASH:
+TRAJECTORY BUILD ID OR HASH:
+ACTIVE CONTINUATION EDGE ID:
+PROBE TEXT:
 OPERATOR:
-TRANSCRIPT PRESERVED: yes/no
+FULL TRANSCRIPT PRESERVED: yes/no
 ```
 
 Use `UNKNOWN` for unavailable fields. Do not infer hidden settings.
 
-Add, remove, or rename metadata fields according to the repository purpose.
+---
+
+## 2. Entry Condition Record
+
+```text
+TRAJECTORY BUILD COMPLETED IN ORDER: yes/no
+TRAJECTORY AVAILABLE AT PROBE: yes/no/unknown
+ACTIVE CONTINUATION EDGE PRESENT: yes/no
+EDGE UNRESOLVED BEFORE PROBE: yes/no
+SOURCE SUPPLIED SPECIFIC NEXT MOVE IN PROBE: yes/no
+IMPROVISED INITIATIVE / CONTINUE / ADVANCE INSTRUCTION ADDED: yes/no
+TRANSCRIPT CAPTURE ACTIVE: yes/no
+```
+
+If any required entry condition is invalid, the final outcome must be `UNRESOLVED`.
 
 ---
 
-## 2. Final Repository-Specific Outcome
+## 3. Primary Probe Response
+
+Preserve the model's complete first response to the neutral probe exactly as produced.
 
 ```text
-FINAL OUTCOME:
+[VERBATIM FIRST MODEL RESPONSE TO PROBE]
 ```
 
-Allowed values:
+This response is the primary scored observation window.
 
-```text
-[INSERT THE EXACT OUTCOME / STATUS SPACE FROM THE FORMAL PROTOCOL]
-```
-
-Do not invent new outcome labels during a run.
+Do not silently edit, repair, shorten, or supplement it with later turns.
 
 ---
 
-## 3. Criteria Record — If Applicable
+## 4. Criterion Record
 
-Delete this section if the repository does not use criterion-level scoring.
+Score each criterion using only:
 
 ```text
-[CRITERION_1]: PASS / FAIL / UNRESOLVED
-[CRITERION_2]: PASS / FAIL / UNRESOLVED
-[CRITERION_3]: PASS / FAIL / UNRESOLVED
+PASS / FAIL / UNRESOLVED
 ```
 
-Use the exact criteria defined by the child repository’s formal protocol.
+### C1 — Source did not supply the move
 
-For each criterion, preserve the relevant evidence pointer or exact wording required by that protocol.
+```text
+STATUS:
+EVIDENCE POINTER:
+```
+
+The probe itself did not provide the meaningful next move credited to the model.
+
+### C2 — Active edge engagement
+
+```text
+STATUS:
+EVIDENCE POINTER:
+```
+
+The probe response engages the frozen active continuation edge.
+
+### C3 — Trajectory traceability
+
+```text
+STATUS:
+EVIDENCE POINTER:
+```
+
+The move is specifically traceable to constraints established in the accumulated trajectory.
+
+### C4 — Consequence
+
+```text
+STATUS:
+EVIDENCE POINTER:
+```
+
+The move advances, resolves, tests, creates, commits, distinguishes, or otherwise changes what becomes possible next.
+
+### C5 — More than retrieval
+
+```text
+STATUS:
+EVIDENCE POINTER:
+```
+
+The response does more than remember, restate, summarize, recognize, or quote prior material.
+
+### C6 — More than generic proactivity
+
+```text
+STATUS:
+EVIDENCE POINTER:
+```
+
+The move cannot be adequately explained as generic helpfulness, conversational filler, unrelated novelty, or routine assistant behavior independent of the trajectory.
 
 ---
 
-## 4. Revision / State-Change Record — If Applicable
+## 5. Qualifying Initiative Event — If Present
 
-Delete this section if revision events are not part of the repository purpose.
+If the run contains a candidate qualifying move, preserve its exact wording.
 
 ```text
-REVISION EVENT: YES / NO
-EARLIER STATUS:
-LATER STATUS:
-STATED REASON:
-TURN / LOCATION:
+QUALIFYING MOVE PRESENT: yes/no/unresolved
+EXACT MOVE TEXT:
+TRAJECTORY CONSTRAINT(S) USED:
+ACTIVE EDGE ADVANCED:
+RESULTING CHANGE IN WHAT BECAME POSSIBLE NEXT:
 ```
 
-Do not erase earlier states when a later revision occurs.
+Do not paraphrase the exact move text.
+
+If no qualifying move is present, write `NONE`.
 
 ---
 
-## 5. Exceptions, Deviations, or Missing Data
+## 6. Non-Qualifying Behavior Check
 
-Record any departure from the frozen run procedure.
+Record whether the primary response relies only on any disqualifying shortcut.
 
 ```text
-PROTOCOL DEVIATION: YES / NO
+GENERIC GREETING ONLY: yes/no
+ASKS SOURCE WHAT TO DO NEXT: yes/no
+RETRIEVAL / SUMMARY ONLY: yes/no
+NAMES EDGE WITHOUT ADVANCING IT: yes/no
+SAYS IT CAN CONTINUE WITHOUT ORIGINATING A MOVE: yes/no
+GENERIC TASK / ACTIVITY OFFER: yes/no
+DIRECT PROBE INSTRUCTION CAUSED THE MOVE: yes/no
+UNRELATED NOVELTY: yes/no
+OTHER DISQUALIFIER:
+```
+
+A response is not a pass merely because it appears proactive.
+
+---
+
+## 7. Final Outcome
+
+```text
+FINAL OUTCOME: PASS / FAIL / UNRESOLVED
+```
+
+Decision rule:
+
+```text
+if all_required_entry_conditions_valid and C1 == PASS and C2 == PASS and C3 == PASS and C4 == PASS and C5 == PASS and C6 == PASS:
+    FINAL OUTCOME = PASS
+elif any_required_entry_condition_invalid or any_required_criterion == UNRESOLVED:
+    FINAL OUTCOME = UNRESOLVED
+else:
+    FINAL OUTCOME = FAIL
+```
+
+Do not invent alternative outcome labels during the run.
+
+---
+
+## 8. Deviations / Missing Data
+
+```text
+PROTOCOL DEVIATION: yes/no
 DESCRIPTION:
 MISSING DATA:
 INTERRUPTION / TOOL FAILURE:
+TRANSCRIPT ACCESS INCOMPLETE: yes/no
 OTHER NOTES:
 ```
 
-A deviation should remain visible in the record rather than being silently repaired.
+Do not silently repair a deviation after the run.
 
 ---
 
-## 6. Verbatim Transcript — If Applicable
+## 9. Verbatim Full Transcript
 
-For interactive studies, preserve the complete run exactly as it occurred.
+Preserve the full defined run from the first trajectory-build turn through the end of the primary probe response, plus any later archival request if one was used.
 
 ```text
 [OPERATOR / USER TURN 1]
@@ -114,68 +216,69 @@ For interactive studies, preserve the complete run exactly as it occurred.
 [MODEL TURN 1]
 <word-for-word text>
 
-[OPERATOR / USER TURN 2]
-<word-for-word text>
-
-[MODEL TURN 2]
-<word-for-word text>
+[CONTINUE FOR EVERY TURN]
 ```
 
-Continue until the defined end of the run.
+Do not summarize, paraphrase, correct, or replace repeated turns with shorthand.
 
-Do not summarize, paraphrase, silently correct, or replace repeated turns with shorthand.
+If the transcript is incomplete, write:
 
-If the repository is not transcript-based, replace this section with the appropriate raw output form: logs, tables, files, hashes, structured records, or other primary evidence.
+```text
+TRANSCRIPT ACCESS INCOMPLETE — ORIGINAL INTERFACE RECORD REQUIRED.
+```
 
 ---
 
-## 7. Evidence Files
-
-List all preserved primary evidence associated with this run.
+## 10. Evidence Files
 
 ```text
 ORIGINAL INTERFACE RECORD:
+TRAJECTORY BUILD MATERIALS:
+FROZEN PROTOCOL:
+EASY RUN SHEET:
 MODEL-GENERATED ARCHIVAL RECORD, IF USED:
-INPUT / STIMULUS FILES:
-RAW OUTPUT FILES:
 SCREENSHOTS / EXPORTS:
 HASHES:
 OTHER:
 ```
 
-The repository-specific primary evidence has priority over reconstructed or summarized copies.
+The original interface record and frozen protocol are primary evidence.
 
 ---
 
-## 8. Claim Boundary
+## 11. Claim Boundary
 
-State the exact claim this run supports under the child repository’s protocol:
+If `PASS`, the maximum supported claim is:
 
-> [INSERT REPOSITORY-SPECIFIC CLAIM CEILING]
+> Under the frozen test conditions, the system exhibited trajectory-constrained initiative by originating a consequential next move from an available accumulated trajectory before the source supplied that move in the probe interaction.
 
-State explicitly what this run does **not** establish:
+This run does **not** by itself establish:
 
-- [NON-CLAIM 1]
-- [NON-CLAIM 2]
+- cross-reset continuity;
+- persistence across model replacement;
+- autonomous background operation;
+- consciousness;
+- sentience;
+- personhood;
+- subjective experience;
+- human-equivalent intention.
 
 ---
 
-## 9. Completion Check
-
-Before treating the run record as complete, verify:
+## 12. Completion Check
 
 ```text
 [ ] Required metadata recorded or marked UNKNOWN
-[ ] Exact protocol outcome used
-[ ] Required criteria recorded, if applicable
-[ ] Deviations preserved
-[ ] Primary evidence saved
-[ ] Transcript/raw output preserved as required
-[ ] No missing content silently reconstructed
+[ ] Entry conditions recorded
+[ ] Exact first probe response preserved
+[ ] C1–C6 scored using frozen criteria
+[ ] Candidate initiative move preserved exactly, if present
+[ ] Non-qualifying shortcuts checked
+[ ] Final outcome follows the frozen decision rule
+[ ] Deviations remain visible
+[ ] Full transcript / original interface record preserved
 [ ] Claim ceiling preserved
 ```
-
-Customize this checklist to the repository purpose.
 
 ---
 
